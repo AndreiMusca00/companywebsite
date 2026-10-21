@@ -67,3 +67,14 @@ După lansarea publică HTTPS și verificarea accesului direct la aceste URL-uri
 Resursele NearPlay provin din pagina App Store indicată de utilizator, preluate la 21 octombrie 2026. URL-urile sursă sunt în `public/nearplay/sources.json`. Conținutul aplicației este o copie locală, nu o sincronizare automată. Confirmă că politica și declarațiile App Privacy rămân concordante cu versiunea aplicației înainte de migrare.
 
 Cele trei pagini sunt copii ale textelor originale, adaptate la designul site-ului. Placeholderul din Terms a fost completat; confirmă numele juridic din Support înainte de publicare. Nu s-au modificat paginile Google Sites sau linkurile aplicației.
+
+## Firebase Hosting
+
+Proiect: `fly-company-website`. Configurația publică doar `dist/` și redirecționează rutele aplicației către `index.html`, inclusiv paginile NearPlay. Build-ul rulează automat înainte de deploy.
+
+```sh
+npx --yes firebase-tools login
+npx --yes firebase-tools deploy --only hosting --project fly-company-website
+```
+
+Adresa așteptată după deploy: https://fly-company-website.web.app. Configurația nu modifică DNS-ul și nu conectează încă domeniul personalizat. Cache-ul și logurile Firebase sunt excluse din Git.
